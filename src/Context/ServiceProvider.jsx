@@ -14,7 +14,7 @@ function ServiceProvider({children}){
 
     async function requestPets(){
         const res =await fetch(
-        `http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`
+        `https://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`
         );
         const json=await res.json();
         setPets(json.pets);
@@ -22,7 +22,7 @@ function ServiceProvider({children}){
 
     async function requestAPet(id){
         const res= await fetch(
-            `http://pets-v2.dev-apis.com/pets?id=${id}`
+            `https://pets-v2.dev-apis.com/pets?id=${id}`
         );
         const respuesta= await res.json()
         setThePet(respuesta.pets[0])
