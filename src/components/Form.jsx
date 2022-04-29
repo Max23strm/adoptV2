@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, {useContext, useEffect} from 'react'
 import ThemeContext from "../Context/ThemeContext"
 import useBreedList from '../hooks/useBreedList';
 import Results from './Results';
@@ -23,7 +23,6 @@ function Form() {
     requestPets();
     //eslint-disable-next-line
   },[])
-
 
   return (
     <section >
@@ -80,12 +79,14 @@ function Form() {
             value={theme}
             onChange={(e)=>setTheme(e.target.value)}
             onBlur={(e)=>setTheme(e.target.value)}>
-              <option value="red">Red</option>
-              <option value="amber">Amber</option>
-              <option value="emerald">Emerald</option>
+              <option value="bg-red-500">Red</option>
+              <option value="bg-lime-500">Lime</option>
+              <option value="bg-amber-500">Amber</option>
+              <option value="bg-emerald-500">Emerald</option>
+              <option value="bg-violet-500">Violet</option>
             </select>
         </label>
-        <button className={`p-2 my-3 rounded-md border-2 border-solid border-black bg-${theme}-500`}>Submit</button>
+        <button className={`${theme} p-2 my-3 rounded-md border-2 border-solid border-black `}>Submit</button>
     </form>
     <Results pets={pets}/>
     </section>

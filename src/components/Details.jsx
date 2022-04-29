@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import {ServiceConsumer} from '../Context/ServiceProvider'
-
+import ThemeContext from "../Context/ThemeContext"
 
 function Details() {
   //  state={loading:true, showModal:false};
   const identi= useParams().id
   const {requestAPet,thePet}= ServiceConsumer()
   console.log(thePet)
-
+  const [theme] = useContext(ThemeContext);
   useEffect(()=>{
     requestAPet(identi)
 
@@ -25,6 +25,7 @@ function Details() {
             <p className='mx-2'>{thePet.breed}</p>-
             <p className='mx-2'>{thePet.city},{thePet.state}</p>
         </div>
+        <button className={`rounded-lg p-3 my-2 ${theme} font-bold hover:bg-gradient-to-tl from-cyan-500 hover:text-white ${theme}`}>Adopt Now!</button>
         <div className='text-center'>{thePet.description}</div>
       </div>
       )

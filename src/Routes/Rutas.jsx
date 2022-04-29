@@ -10,7 +10,7 @@ import DetailView from '../views/DetailView';
 
 
 function Rutas() {
-    const theme = useState("amber")
+    const theme = useState("bg-amber-500")
 
     return (
     <ThemeContext.Provider value={theme}>
